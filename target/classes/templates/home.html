@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Builds & Drinks</title>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+</head>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-info">
+    <a class="navbar-brand" href="#">
+        <img src="../windows8.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Builds & Drinks
+    </a>
+
+    <form class="form-inline">
+        <label class="sr-only" for="inlineFormInputName2">Name</label>
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter a username">
+        <button type="submit" class="btn btn-dark mb-2">Submit</button>
+    </form>
+</nav>
+<body>
+<div class="container-fluid">
+<table class="table table-hover table-dark" style="margin-top:50px; padding-bottom:5px">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Builds</th>
+        <th scope="col">Drinks</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${liste}">
+        <th scope="row"  th:text="${person.id}"></th>
+        <td th:text="${person.name}"></td>
+        <td th:text="${person.nbBuilds}"></td>
+        <td th:text="${person.nbDrinks}" ></td>
+        <td>
+            <button type="button" class="btn btn-warning btn-sm">One more broken build</button>
+            <button type="button" class="btn btn-success btn-sm">I have paid!</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
